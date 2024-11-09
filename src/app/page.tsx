@@ -1,101 +1,130 @@
-import Image from "next/image";
+import CardItem from "@/components/card-item";
+const data = [
+  {
+    id: 1,
+    icon: (
+      <svg
+        width="21"
+        height="21"
+        viewBox="0 0 21 21"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M19.0971 11.0523V12.7675C19.0971 13.2338 18.7141 13.6168 18.2395 13.6168H16.6325C15.7333 13.6168 14.909 12.959 14.834 12.0598C14.7841 11.5352 14.9839 11.0439 15.3336 10.7026C15.6417 10.3862 16.0663 10.203 16.5326 10.203H18.2395C18.7141 10.203 19.0971 10.586 19.0971 11.0523Z"
+          fill="#1FCB4F"
+        />
+        <path
+          d="M13.5849 12.168C13.5099 11.2938 13.8263 10.4362 14.4591 9.81167C14.992 9.27046 15.7331 8.95405 16.5324 8.95405H17.007C17.2401 8.95405 17.4317 8.76255 17.3983 8.52941C17.1735 6.91409 15.7747 5.66513 14.1011 5.66513H5.77471C3.93458 5.66513 2.44415 7.15555 2.44415 8.99569L2.44415 14.8242C2.44415 16.6643 3.93458 18.1547 5.77471 18.1547H14.1011C15.783 18.1547 17.1735 16.9058 17.3983 15.2904C17.4317 15.0573 17.2401 14.8658 17.007 14.8658H16.6323C15.0503 14.8658 13.7181 13.6834 13.5849 12.168ZM11.6032 10.4528H6.60735C6.26597 10.4528 5.98287 10.178 5.98287 9.82832C5.98287 9.47862 6.26597 9.20385 6.60735 9.20385H11.6032C11.9446 9.20385 12.2277 9.48694 12.2277 9.82832C12.2277 10.1697 11.9446 10.4528 11.6032 10.4528Z"
+          fill="#1FCB4F"
+        />
+        <path
+          d="M12.6108 3.85827C12.8273 4.08308 12.6357 4.41614 12.3193 4.41614H5.79978C4.8922 4.41614 4.04291 4.68258 3.33517 5.14053C3.01044 5.34869 2.56914 5.12388 2.72734 4.76585C3.19362 3.67509 4.28438 2.91739 5.54166 2.91739H10.2211C11.187 2.91739 12.0446 3.25877 12.6108 3.85827Z"
+          fill="#1FCB4F"
+        />
+      </svg>
+    ),
+    title: "Balance",
+    amount: 41210,
+  },
+  {
+    id: 2,
+    icon: (
+      <svg
+        width="21"
+        height="21"
+        viewBox="0 0 21 21"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10.5213 2.38446L8.51466 7.05557H6.508C6.17495 7.05557 5.85022 7.08055 5.53381 7.14716L6.36645 5.14883L6.39976 5.07389L6.44972 4.94067C6.4747 4.88238 6.49135 4.83242 6.51633 4.79079C7.48219 2.55099 8.56462 1.85158 10.5213 2.38446Z"
+          fill="#1FCB4F"
+        />
+        <path
+          d="M16.1749 7.28044L16.1582 7.27211C15.6586 7.13056 15.1507 7.05563 14.6345 7.05563H9.42218L11.2956 2.70092L11.3206 2.64264C11.4372 2.68427 11.5621 2.74256 11.687 2.78419L13.5271 3.55854C14.5512 3.98319 15.2673 4.42449 15.7086 4.95738C15.7835 5.05729 15.8502 5.14888 15.9168 5.25713C15.9917 5.37369 16.05 5.49026 16.0833 5.61516C16.1166 5.6901 16.1416 5.75671 16.1582 5.83165C16.2831 6.25629 16.2915 6.73922 16.1749 7.28044Z"
+          fill="#1FCB4F"
+        />
+        <path
+          d="M11.0042 15.2487H11.2123C11.4621 15.2487 11.6703 15.0239 11.6703 14.7492C11.6703 14.3994 11.5703 14.3495 11.3539 14.2662L11.0042 14.1413V15.2487Z"
+          fill="#1FCB4F"
+        />
+        <path
+          d="M15.8086 8.47106C15.4339 8.36282 15.0426 8.30453 14.6346 8.30453H6.50804C5.94185 8.30453 5.40896 8.41278 4.90937 8.62926C3.46058 9.25374 2.44476 10.6942 2.44476 12.3678V13.9915C2.44476 14.1913 2.46142 14.3828 2.4864 14.5826C2.66958 17.2304 4.08506 18.6459 6.73285 18.8208C6.92436 18.8457 7.11587 18.8624 7.32403 18.8624H13.8186C16.8994 18.8624 18.523 17.397 18.6812 14.4827C18.6895 14.3245 18.6979 14.158 18.6979 13.9915V12.3678C18.6979 10.5277 17.4739 8.97897 15.8086 8.47106ZM11.6371 13.4502C12.0201 13.5835 12.5363 13.8666 12.5363 14.7492C12.5363 15.5069 11.9452 16.1147 11.2125 16.1147H11.0043V16.2979C11.0043 16.5393 10.8128 16.7308 10.5713 16.7308C10.3299 16.7308 10.1383 16.5393 10.1383 16.2979V16.1147H10.0634C9.26408 16.1147 8.60629 15.4402 8.60629 14.6076C8.60629 14.3661 8.7978 14.1746 9.03926 14.1746C9.28073 14.1746 9.47224 14.3661 9.47224 14.6076C9.47224 14.9573 9.73868 15.2487 10.0634 15.2487H10.1383V13.8416L9.50554 13.6168C9.12253 13.4835 8.60629 13.2005 8.60629 12.3179C8.60629 11.5602 9.19746 10.9523 9.93019 10.9523H10.1383V10.7691C10.1383 10.5277 10.3299 10.3362 10.5713 10.3362C10.8128 10.3362 11.0043 10.5277 11.0043 10.7691V10.9523H11.0792C11.8786 10.9523 12.5363 11.6268 12.5363 12.4594C12.5363 12.7009 12.3448 12.8924 12.1034 12.8924C11.8619 12.8924 11.6704 12.7009 11.6704 12.4594C11.6704 12.1097 11.404 11.8183 11.0792 11.8183H11.0043V13.2254L11.6371 13.4502Z"
+          fill="#1FCB4F"
+        />
+        <path
+          d="M9.47223 12.3179C9.47223 12.6677 9.57215 12.7176 9.78863 12.8009L10.1383 12.9258V11.8184H9.93018C9.67206 11.8184 9.47223 12.0432 9.47223 12.3179Z"
+          fill="#1FCB4F"
+        />
+      </svg>
+    ),
+    title: "Income",
+    amount: 41210,
+  },
+  {
+    id: 3,
+    icon: (
+      <svg
+        width="21"
+        height="21"
+        viewBox="0 0 21 21"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M18.6967 6.83082C18.6967 7.38036 18.2471 7.82998 17.6976 7.82998H3.04311C2.49357 7.82998 2.04395 7.38036 2.04395 6.83082V6.82249C2.04395 4.91575 3.58433 3.37537 5.49107 3.37537L15.2413 3.37537C17.148 3.37537 18.6967 4.92407 18.6967 6.83082Z"
+          fill="#1FCB4F"
+        />
+        <path
+          d="M2.04395 10.0781V14.2496C2.04395 16.1563 3.58433 17.6967 5.49107 17.6967H15.2413C17.148 17.6967 18.6967 16.148 18.6967 14.2413V10.0781C18.6967 9.52854 18.2471 9.07892 17.6976 9.07892H3.04311C2.49357 9.07892 2.04395 9.52854 2.04395 10.0781ZM7.03978 14.9074H5.3745C5.03312 14.9074 4.75002 14.6243 4.75002 14.2829C4.75002 13.9415 5.03312 13.6584 5.3745 13.6584H7.03978C7.38116 13.6584 7.66426 13.9415 7.66426 14.2829C7.66426 14.6243 7.38116 14.9074 7.03978 14.9074ZM12.4519 14.9074H9.12138C8.77999 14.9074 8.4969 14.6243 8.4969 14.2829C8.4969 13.9415 8.77999 13.6584 9.12138 13.6584H12.4519C12.7933 13.6584 13.0764 13.9415 13.0764 14.2829C13.0764 14.6243 12.7933 14.9074 12.4519 14.9074Z"
+          fill="#1FCB4F"
+        />
+      </svg>
+    ),
+    title: "Expenses",
+    amount: 41210,
+  },
+  {
+    id: 4,
+    icon: (
+      <svg
+        width="21"
+        height="21"
+        viewBox="0 0 21 21"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10.7953 13.8H11.3365C11.8777 13.8 12.3273 13.317 12.3273 12.7342C12.3273 12.0098 12.0692 11.8682 11.6446 11.7184L10.8036 11.4269V13.8H10.7953Z"
+          fill="#1FCB4F"
+        />
+        <path
+          d="M10.1459 2.12642C5.54978 2.14307 1.82789 5.88162 1.84454 10.4778C1.86119 15.074 5.59974 18.7958 10.1959 18.7792C14.7921 18.7625 18.514 15.024 18.4973 10.4278C18.4807 5.83166 14.7421 2.11809 10.1459 2.12642ZM12.0527 10.5361C12.7021 10.7609 13.5764 11.2438 13.5764 12.7342C13.5764 14.0165 12.5689 15.049 11.3366 15.049H10.7954V15.5319C10.7954 15.8733 10.5123 16.1564 10.1709 16.1564C9.82955 16.1564 9.54645 15.8733 9.54645 15.5319V15.049H9.2467C7.88117 15.049 6.77376 13.8999 6.77376 12.4844C6.77376 12.1431 7.05686 11.86 7.39824 11.86C7.73962 11.86 8.02272 12.1431 8.02272 12.4844C8.02272 13.2088 8.57226 13.8 9.2467 13.8H9.54645V10.9857L8.28916 10.5361C7.6397 10.3113 6.76543 9.82833 6.76543 8.3379C6.76543 7.05564 7.77293 6.02317 9.00523 6.02317H9.54645V5.54024C9.54645 5.19885 9.82955 4.91576 10.1709 4.91576C10.5123 4.91576 10.7954 5.19885 10.7954 5.54024V6.02317H11.0952C12.4607 6.02317 13.5681 7.17221 13.5681 8.5877C13.5681 8.92908 13.285 9.21217 12.9436 9.21217C12.6022 9.21217 12.3191 8.92908 12.3191 8.5877C12.3191 7.8633 11.7696 7.27213 11.0952 7.27213H10.7954V10.0864L12.0527 10.5361Z"
+          fill="#1FCB4F"
+        />
+        <path
+          d="M8.02258 8.34617C8.02258 9.07056 8.2807 9.21211 8.70535 9.36199L9.54631 9.65341V7.27206H9.0051C8.46388 7.27206 8.02258 7.75499 8.02258 8.34617Z"
+          fill="#1FCB4F"
+        />
+      </svg>
+    ),
+    title: "Savings",
+    amount: 41210,
+  },
+];
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
+      {data.map((item) => (
+        <CardItem
+          icon={item.icon}
+          key={item.id}
+          label={item.title}
+          amount={item.amount}
         />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      ))}
     </div>
   );
 }
