@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import LayoutDashboard from "@/layouts/LayoutDashboard";
+import { Analytics } from "@vercel/analytics/react";
+
 import "../styles/globals.css";
 
 import { Poppins } from "next/font/google";
@@ -24,6 +26,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppins.className} antialiased`}>
         <LayoutDashboard>{children}</LayoutDashboard>
+        <Analytics />
       </body>
     </html>
   );
